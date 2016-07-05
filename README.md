@@ -82,7 +82,7 @@ $ micro query go.micro.srv.user Account.Delete '{"id": "ff3c06de-9e43-41c7-9bab-
 {}
 ```
 
-### Auth.Login
+### Account.Login
 ```shell
 $ micro query go.micro.srv.user Account.Login '{"username": "asim", "password": "password1"}'
 {
@@ -95,7 +95,7 @@ $ micro query go.micro.srv.user Account.Login '{"username": "asim", "password": 
 }
 ```
 
-### Auth.ReadSession
+### Account.ReadSession
 ```shell
 $ micro query go.micro.srv.user Account.ReadSession '{"sessionId": "sr7UEBmIMg5hYOgiljnhrd4XLsnalNewBV9KzpZ9aD8w37b3jRmEujGtKGcGlXPg1yYoSHR3RLy66ugglw0tofTNGm57NrNYUHsFxfwuGC6pvCn8BecB7aEF6UxTyVFq"}'
 {
@@ -108,7 +108,7 @@ $ micro query go.micro.srv.user Account.ReadSession '{"sessionId": "sr7UEBmIMg5h
 }
 ```
 
-### Auth.Logout
+### Account.Logout
 ```shell
 $ micro query go.micro.srv.user Account.Logout '{"sessionId": "sr7UEBmIMg5hYOgiljnhrd4XLsnalNewBV9KzpZ9aD8w37b3jRmEujGtKGcGlXPg1yYoSHR3RLy66ugglw0tofTNGm57NrNYUHsFxfwuGC6pvCn8BecB7aEF6UxTyVFq"}'
 {}
