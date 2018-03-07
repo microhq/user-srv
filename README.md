@@ -14,6 +14,7 @@ A user service for storing accounts and simple auth.
 
 	```shell
 	user-srv --database_url="root:root@tcp(192.168.99.100:3306)/user"
+	```
 
 	OR as a docker container
 
