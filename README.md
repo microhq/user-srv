@@ -50,37 +50,37 @@ micro query go.micro.srv.user Account.Create '{"user":{"id": "ff3c06de-9e43-41c7
 micro query go.micro.srv.user Account.Read '{"id": "ff3c06de-9e43-41c7-9bab-578f6b4ad32b"}'
 ```
 
-## Update
+### Update
 
 ```shell
 micro query go.micro.srv.user Account.Update '{"user":{"id": "ff3c06de-9e43-41c7-9bab-578f6b4ad32b", "username": "asim", "email": "asim+update@example.com"}}'
 ```
 
-## Update Password
+### Update Password
 
 ```shell
 micro query go.micro.srv.user Account.UpdatePassword '{"userId": "ff3c06de-9e43-41c7-9bab-578f6b4ad32b", "oldPassword": "password1", "newPassword": "newpassword1", "confirmPassword": "newpassword1" }'
 ```
 
-## Delete
+### Delete
 
 ```shell
 micro query go.micro.srv.user Account.Delete '{"id": "ff3c06de-9e43-41c7-9bab-578f6b4ad32b"}'
 ```
 
-## Login
+### Login
 
 ```shell
 micro query go.micro.srv.user Account.Login '{"username": "asim", "password": "password1"}'
 ```
 
-## Read Session
+### Read Session
 
 ```shell
 micro query go.micro.srv.user Account.ReadSession '{"sessionId": "sr7UEBmIMg5hYOgiljnhrd4XLsnalNewBV9KzpZ9aD8w37b3jRmEujGtKGcGlXPg1yYoSHR3RLy66ugglw0tofTNGm57NrNYUHsFxfwuGC6pvCn8BecB7aEF6UxTyVFq"}'
 ```
 
-## Logout
+### Logout
 
 ```shell
 micro query go.micro.srv.user Account.Logout '{"sessionId": "sr7UEBmIMg5hYOgiljnhrd4XLsnalNewBV9KzpZ9aD8w37b3jRmEujGtKGcGlXPg1yYoSHR3RLy66ugglw0tofTNGm57NrNYUHsFxfwuGC6pvCn8BecB7aEF6UxTyVFq"}'
