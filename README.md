@@ -1,27 +1,19 @@
 # User Server
 
-User server is a microservice to store user accounts and perform simple authentication.
+A user service for storing accounts and simple auth.
 
 ## Getting started
 
-1. Install Consul
-
-	Consul is the default registry/discovery for go-micro apps. It's however pluggable.
-	[https://www.consul.io/intro/getting-started/install.html](https://www.consul.io/intro/getting-started/install.html)
-
-2. Run Consul
-	```
-	$ consul agent -server -bootstrap-expect 1 -data-dir /tmp/consul
-	```
-
-3. Start a mysql database
-
-4. Download and start the service
+1. Run Consul
+2. Run MySQL
+3. Run service
 
 	```shell
 	go get github.com/micro/user-srv
-	user-srv --database_url="root:root@tcp(192.168.99.100:3306)/user"
 	```
+
+	```shell
+	user-srv --database_url="root:root@tcp(192.168.99.100:3306)/user"
 
 	OR as a docker container
 
@@ -30,6 +22,7 @@ User server is a microservice to store user accounts and perform simple authenti
 	```
 
 ## The API
+
 User server implements the following RPC Methods
 
 Account
@@ -45,71 +38,49 @@ Account
 
 
 ### Account.Create
+
 ```shell
-$ micro query go.micro.srv.user Account.Create '{"user":{"id": "ff3c06de-9e43-41c7-9bab-578f6b4ad32b", "username": "asim", "email": "asim@example.com"}, "password": "password1"}'
-{}
+micro query go.micro.srv.user Account.Create '{"user":{"id": "ff3c06de-9e43-41c7-9bab-578f6b4ad32b", "username": "asim", "email": "asim@example.com"}, "password": "password1"}'
 ```
 
-### Account.Read
+### Account.Read
+
 ```shell
-$ micro query go.micro.srv.user Account.Read '{"id": "ff3c06de-9e43-41c7-9bab-578f6b4ad32b"}'
-{
-	"user": {
-		"created": 1.450816182e+09,
-		"email": "asim@example.com",
-		"id": "ff3c06de-9e43-41c7-9bab-578f6b4ad32b",
-		"updated": 1.450816182e+09,
-		"username": "asim"
-	}
-}
+micro query go.micro.srv.user Account.Read '{"id": "ff3c06de-9e43-41c7-9bab-578f6b4ad32b"}'
 ```
 
-### Account.Update
+### Account.Update
+
 ```shell
-$ micro query go.micro.srv.user Account.Update '{"user":{"id": "ff3c06de-9e43-41c7-9bab-578f6b4ad32b", "username": "asim", "email": "asim+update@example.com"}}'
-{}
+micro query go.micro.srv.user Account.Update '{"user":{"id": "ff3c06de-9e43-41c7-9bab-578f6b4ad32b", "username": "asim", "email": "asim+update@example.com"}}'
 ```
 
-### Account.UpdatePassword
+### Account.UpdatePassword
+
 ```shell
-$ micro query go.micro.srv.user Account.UpdatePassword '{"userId": "ff3c06de-9e43-41c7-9bab-578f6b4ad32b", "oldPassword": "password1", "newPassword": "newpassword1", "confirmPassword": "newpassword1" }'
-{}
+micro query go.micro.srv.user Account.UpdatePassword '{"userId": "ff3c06de-9e43-41c7-9bab-578f6b4ad32b", "oldPassword": "password1", "newPassword": "newpassword1", "confirmPassword": "newpassword1" }'
 ```
 
-### Account.Delete
+### Account.Delete
+
 ```shell
-$ micro query go.micro.srv.user Account.Delete '{"id": "ff3c06de-9e43-41c7-9bab-578f6b4ad32b"}'
-{}
+micro query go.micro.srv.user Account.Delete '{"id": "ff3c06de-9e43-41c7-9bab-578f6b4ad32b"}'
 ```
 
-### Account.Login
+### Account.Login
+
 ```shell
-$ micro query go.micro.srv.user Account.Login '{"username": "asim", "password": "password1"}'
-{
-	"session": {
-		"created": 1.450816852e+09,
-		"expires": 1.451421652e+09,
-		"id": "sr7UEBmIMg5hYOgiljnhrd4XLsnalNewBV9KzpZ9aD8w37b3jRmEujGtKGcGlXPg1yYoSHR3RLy66ugglw0tofTNGm57NrNYUHsFxfwuGC6pvCn8BecB7aEF6UxTyVFq",
-		"username": "asim"
-	}
-}
+micro query go.micro.srv.user Account.Login '{"username": "asim", "password": "password1"}'
 ```
 
-### Account.ReadSession
+### Account.ReadSession
+
 ```shell
-$ micro query go.micro.srv.user Account.ReadSession '{"sessionId": "sr7UEBmIMg5hYOgiljnhrd4XLsnalNewBV9KzpZ9aD8w37b3jRmEujGtKGcGlXPg1yYoSHR3RLy66ugglw0tofTNGm57NrNYUHsFxfwuGC6pvCn8BecB7aEF6UxTyVFq"}'
-{
-	"session": {
-		"created": 1.450816852e+09,
-		"expires": 1.451421652e+09,
-		"id": "sr7UEBmIMg5hYOgiljnhrd4XLsnalNewBV9KzpZ9aD8w37b3jRmEujGtKGcGlXPg1yYoSHR3RLy66ugglw0tofTNGm57NrNYUHsFxfwuGC6pvCn8BecB7aEF6UxTyVFq",
-		"username": "asim"
-	}
-}
+micro query go.micro.srv.user Account.ReadSession '{"sessionId": "sr7UEBmIMg5hYOgiljnhrd4XLsnalNewBV9KzpZ9aD8w37b3jRmEujGtKGcGlXPg1yYoSHR3RLy66ugglw0tofTNGm57NrNYUHsFxfwuGC6pvCn8BecB7aEF6UxTyVFq"}'
 ```
 
-### Account.Logout
+### Account.Logout
+
 ```shell
-$ micro query go.micro.srv.user Account.Logout '{"sessionId": "sr7UEBmIMg5hYOgiljnhrd4XLsnalNewBV9KzpZ9aD8w37b3jRmEujGtKGcGlXPg1yYoSHR3RLy66ugglw0tofTNGm57NrNYUHsFxfwuGC6pvCn8BecB7aEF6UxTyVFq"}'
-{}
+micro query go.micro.srv.user Account.Logout '{"sessionId": "sr7UEBmIMg5hYOgiljnhrd4XLsnalNewBV9KzpZ9aD8w37b3jRmEujGtKGcGlXPg1yYoSHR3RLy66ugglw0tofTNGm57NrNYUHsFxfwuGC6pvCn8BecB7aEF6UxTyVFq"}'
 ```
