@@ -10,23 +10,23 @@ To run this example, make sure that you have Consul and MySQL running.
 
 To easily run this example, you can install this repository as a Go package using the following command in your terminal.
 
-	```shell
-	$ go get github.com/microhq/user-srv
-	```
+```shell
+go get github.com/microhq/user-srv
+```
 	
 If you run into problems installing the `usr-srv` package, make sure that you have git terminal prompts enabled.
 
-    ```shell
-    $ env GIT_TERMINAL_PROMPT=1 go get github.com/micro/user-srv
-    ```
+```shell
+env GIT_TERMINAL_PROMPT=1 go get github.com/micro/user-srv
+```
 
 ### Run service
 
 Run the service using the `usr-srv` binary installed in the previous step. Also, make sure that the `$GOPATH/bin` directory is listed on your environment `$PATH`. 
 
-	```shell
-	$ user-srv --database_url="root:root@tcp(127.0.0.1:3306)/user"
-	```
+```shell
+user-srv --database_url="root:root@tcp(127.0.0.1:3306)/user"
+```
 
 ## The API
 
