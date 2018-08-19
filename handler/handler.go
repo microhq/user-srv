@@ -7,11 +7,11 @@ import (
 	"time"
 
 	"github.com/micro/go-micro/errors"
-	"github.com/micro/user-srv/db"
+	"github.com/microhq/user-srv/db"
 	"golang.org/x/crypto/bcrypt"
 	"golang.org/x/net/context"
 
-	account "github.com/micro/user-srv/proto/account"
+	account "github.com/microhq/user-srv/proto/account"
 )
 
 const (
