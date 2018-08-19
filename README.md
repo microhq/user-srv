@@ -4,23 +4,29 @@ A user service for storing accounts and simple auth.
 
 ## Getting started
 
-1. Run Consul
-2. Run MySQL
-3. Run service
+To run this example, make sure that you have Consul and MySQL running.
 
-	```shell
-	go get github.com/micro/user-srv
-	```
+### Install package
 
-	```shell
-	user-srv --database_url="root:root@tcp(192.168.99.100:3306)/user"
-	```
+To easily run this example, you can install this repository as a Go package using the following command in your terminal.
 
-	OR as a docker container
+```shell
+go get github.com/microhq/user-srv
+```
+	
+If you run into problems installing the `usr-srv` package, make sure that you have git terminal prompts enabled.
 
-	```shell
-	docker run microhq/user-srv --database_url="root:root@tcp(192.168.99.100:3306)/user" --registry_address=YOUR_REGISTRY_ADDRESS
-	```
+```shell
+env GIT_TERMINAL_PROMPT=1 go get github.com/microhq/user-srv
+```
+
+### Run service
+
+Run the service using the `usr-srv` binary installed in the previous step. Also, make sure that the `$GOPATH/bin` directory is listed on your environment `$PATH`. 
+
+```shell
+user-srv --database_url="root:root@tcp(127.0.0.1:3306)/user"
+```
 
 ## The API
 
