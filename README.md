@@ -17,7 +17,7 @@ go get github.com/microhq/user-srv
 If you run into problems installing the `usr-srv` package, make sure that you have git terminal prompts enabled.
 
 ```shell
-env GIT_TERMINAL_PROMPT=1 go get github.com/micro/user-srv
+env GIT_TERMINAL_PROMPT=1 go get github.com/microhq/user-srv
 ```
 
 ### Run service
