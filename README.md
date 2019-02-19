@@ -2,6 +2,9 @@
 
 A user service for storing accounts and simple auth.
 
+## Dependence on Service
+It does not dependence on any service.
+
 ## Getting started
 
 To run this example, make sure that you have Consul and MySQL running.
